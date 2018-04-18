@@ -1,11 +1,11 @@
 # Ukkonen's Suffix Tree Algorithm in Python Complete Version
-Suffix Tree Algorithm implemented in Python, might be the most complete version online, even more complete than that demonstrated on stackoverflow.
+Suffix Tree Algorithm implemented in Python, might be the most complete version online, even more complete than that demonstrated on [stackoverflow](https://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english "Very helpful stakeoverflow answers on Ukkonen's Algorithm").
 
-I underestimated the complication of the algorithm and just wanted to have some fun. A primitive implementation was done in a couple of hours, and the demonstation example on stackoverflow works just fine. Then when I wanted try some more complicated examples, I kept hitting the wall time and time again. It annoyed me, and thus costed me several days to try different situations when constructing a suffix tree.
+I underestimated the complication of the algorithm and just wanted to have some fun. A primitive implementation was done in a couple of hours, and the demonstation example on [stackoverflow](https://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english "Very helpful stakeoverflow answers on Ukkonen's Algorithm") works just fine. Then when I wanted try some more complicated examples, I kept hitting the wall time and time again. It annoyed me, and thus costed me several days to try different situations when constructing a suffix tree.
 
 Finally, the version comes out, I think **all the situations** explained in the questions and answers have been experienced and covered in the algorithm above before I read the full post.
 
-I also write a blog on explaining the implementation details on my blogger [MuTuX](http://www.mutux.com/2017/07/suffix-tree-implementation-move-all.html "mutux's blog on text mining") with flowcharts and explanation on it.
+I also write a blog on explaining the implementation details on my blogger [MuTuX](http://mutux.com/2017/07/19/suffix-tree-implementation-move-all.html "mutux's blog on text mining") with flowcharts and explanation on it.
 
 
 ## Examples
