@@ -5,7 +5,7 @@ I underestimated the complication of the algorithm and just wanted to have some 
 
 Finally, the version comes out, I think **all the situations** explained in the questions and answers have been experienced and covered in the algorithm above before I read the full post.
 
-I also write a blog on explaining the implementation details on my blogger [MuTuX](http://www.mutux.com/2017/07/suffix-tree-implementation-move-all.html "mutux's blog on text mining") with flowcharts and explanation on it.
+I also write a blog on explaining the implementation details on my blogger [MuTuX](http://www.mutux.com/2017/07/19/suffix-tree-implementation-move-all.html "mutux's blog on text mining") with flowcharts and explanation on it.
 
 
 ## Examples
