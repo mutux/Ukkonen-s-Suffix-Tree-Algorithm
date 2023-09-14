@@ -13,7 +13,7 @@ class Node:
     def getoutedges(self):
         return self.outedges
 
-    def setoutedge(self, key, (anode, label_start_index, label_end_index, bnode)):
+    def setoutedge(self, key, anode, label_start_index, label_end_index, bnode):
         if self.outedges is None:
             self.outedges = {}
         self.outedges[key] = (anode, label_start_index, label_end_index, bnode)
@@ -72,19 +72,19 @@ class Node:
                 linkid = '->' + str(node.getsuffixlink().getid())
 
             if v == 0:
-                print " " * maxlen * v + '|'
-                print " " * maxlen * v + '|' + ' ' * 3 + chars[s:t + 1]
-                print '+' + " " * maxlen * v + '-' + '-' * (maxlen - 1) + '● ' + '(' + str(node.getid()) + linkid + ')'
+                print(" " * maxlen * v + '|')
+                print(" " * maxlen * v + '|' + ' ' * 3 + chars[s:t + 1])
+                print('+' + " " * maxlen * v + '-' + '-' * (maxlen - 1) + '● ' + '(' + str(node.getid()) + linkid + ')')
             else:
-                print '|' + " " * maxlen * v + '|'
-                print '|' + " " * maxlen * v + '|' + ' ' * 3 + chars[s:t + 1]
-                print '|' + " " * maxlen * v + '+' + '-' * (maxlen - 1) + '● ' + '(' + str(node.getid()) + linkid + ')'
+                print('|' + " " * maxlen * v + '|')
+                print('|' + " " * maxlen * v + '|' + ' ' * 3 + chars[s:t + 1])
+                print('|' + " " * maxlen * v + '+' + '-' * (maxlen - 1) + '● ' + '(' + str(node.getid()) + linkid + ')')
             if node.getoutedges() is not None:
                 Node.__draw__(node, chars, v + 1, ed)
 
     @staticmethod
     def draw(root, chars, ed='#'):
-        print '\n', chars, '\n● (0)'
+        print('\n', chars, '\n● (0)')
         v = 0
         Node.__draw__(root, chars, v, ed)
 
@@ -114,7 +114,7 @@ def build(chars, regularize=False):
                 aleaf = Node(None, None, None)
                 aedge = (actnode, ind, '#', aleaf)
                 aleaf.setparentkey((actnode, chars[ind]))
-                actnode.setoutedge(chars[ind], aedge)
+                actnode.setoutedge(chars[ind], *aedge)
         else:
             if actkey == '' and actlen == 0:  # compare on node
                 if ch in actnode.getoutedges():
@@ -168,7 +168,7 @@ def unfold(root, chars, ind, remainder, actnode, actkey, actlen):
                 aleaf = Node(None, None, None)
                 aedge = (actnode, ind, '#', aleaf)
                 aleaf.setparentkey((actnode, chars[ind]))
-                actnode.setoutedge(chars[ind], aedge)
+                actnode.setoutedge(chars[ind], *aedge)
         else:  # on edge
             anode, start, end, bnode = actnode.getoutedge(actkey)
             if remains[actlen_re + actlen] != chars[start + actlen]:
@@ -177,13 +177,13 @@ def unfold(root, chars, ind, remainder, actnode, actkey, actlen):
                 newnode = Node(None, None, None)
                 halfedge1 = (actnode, start, start + actlen - 1, newnode)
                 halfedge2 = (newnode, start + actlen, end, bnode)
-                actnode.setoutedge(actkey, halfedge1)
+                actnode.setoutedge(actkey, *halfedge1)
                 newnode.setparentkey((actnode, actkey))
-                newnode.setoutedge(chars[start + actlen], halfedge2)
+                newnode.setoutedge(chars[start + actlen], *halfedge2)
                 aleaf = Node(None, None, None)
                 aedge = (newnode, ind, '#', aleaf)
                 aleaf.setparentkey((newnode, chars[ind]))
-                newnode.setoutedge(chars[ind], aedge)
+                newnode.setoutedge(chars[ind], *aedge)
             else:
                 return remainder, actnode, actkey, actlen
         if prenode is not None and 'aleaf' in locals() and aleaf.getparenkey()[0] is not root:
