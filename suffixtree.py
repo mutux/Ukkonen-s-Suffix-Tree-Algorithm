@@ -72,19 +72,19 @@ class Node:
                 linkid = '->' + str(node.getsuffixlink().getid())
 
             if v == 0:
-                print " " * maxlen * v + '|'
-                print " " * maxlen * v + '|' + ' ' * 3 + chars[s:t + 1]
-                print '+' + " " * maxlen * v + '-' + '-' * (maxlen - 1) + '● ' + '(' + str(node.getid()) + linkid + ')'
+                print(" " * maxlen * v + '|')
+                print(" " * maxlen * v + '|' + ' ' * 3 + chars[s:t + 1])
+                print('+' + " " * maxlen * v + '-' + '-' * (maxlen - 1) + '● ' + '(' + str(node.getid()) + linkid + ')')
             else:
-                print '|' + " " * maxlen * v + '|'
-                print '|' + " " * maxlen * v + '|' + ' ' * 3 + chars[s:t + 1]
-                print '|' + " " * maxlen * v + '+' + '-' * (maxlen - 1) + '● ' + '(' + str(node.getid()) + linkid + ')'
+                print('|' + " " * maxlen * v + '|')
+                print('|' + " " * maxlen * v + '|' + ' ' * 3 + chars[s:t + 1])
+                print('|' + " " * maxlen * v + '+' + '-' * (maxlen - 1) + '● ' + '(' + str(node.getid()) + linkid + ')')
             if node.getoutedges() is not None:
                 Node.__draw__(node, chars, v + 1, ed)
 
     @staticmethod
     def draw(root, chars, ed='#'):
-        print '\n', chars, '\n● (0)'
+        print('\n', chars, '\n● (0)')
         v = 0
         Node.__draw__(root, chars, v, ed)
 
